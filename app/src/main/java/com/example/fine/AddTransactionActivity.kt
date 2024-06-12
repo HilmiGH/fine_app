@@ -18,6 +18,7 @@ class AddTransactionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityAddTransactionBinding.inflate(layoutInflater)
 //        setContentView(R.layout.activity_add_transaction)
         setContentView(binding.root)

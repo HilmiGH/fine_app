@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        super.onCreate(savedInstanceState)
@@ -88,9 +89,9 @@ class MainActivity : AppCompatActivity() {
         val budgetAmount = transactions.filter { it.amount>0 }.map{it.amount}.sum()
         val expenseAmount = totalAmount - budgetAmount
 
-        binding.balance.text = "$ %.2f".format(totalAmount)
-        binding.budget.text = "$ %2f".format(budgetAmount)
-        binding.expense.text = "$ %2f".format(expenseAmount)
+        binding.balance.text = "Rp %.0f".format(totalAmount)
+        binding.budget.text = "Rp %.0f".format(budgetAmount)
+        binding.expense.text = "Rp %.0f".format(expenseAmount)
     }
 
     private fun undoDelete(){
@@ -108,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSnackBar() {
         val view = findViewById<View>(R.id.coordinator)
-        val snackbar = com.google.android.material.snackbar.Snackbar.make(view, "Transaction deleted!", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
+        val snackbar = com.google.android.material.snackbar.Snackbar.make(view, "Transaksi berhasil dihapus!", com.google.android.material.snackbar.Snackbar.LENGTH_LONG)
         snackbar.setAction("Undo") {
             undoDelete()
         }
